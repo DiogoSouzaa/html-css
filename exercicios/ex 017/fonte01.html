@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonte em CSS</title>
+    <Style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0.700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;&display=swap');/*fonte exportada  e suas opções de estilo */
+        body{
+         font-family:'Work Sans', Helvetica, sans-serif;
+         /*Medidas absolutas
+         cm, mm, in (polegadas),px (píxel), pc (paica) 
+         
+         Medidas relativas
+         em (Tamanho M maiusc de uma fonte),ex (tam da altura x de uma fonte ) ,rem ( fonte que esta configurada no body), vw(viewwidth, tamanho da tela),vh (altura da viewport), %
+         w3c recomenda para fontes o uso do px e em .
+         16px geralmente = 1em
+         */
+         font-size: 1em;
+         font-weight:bolder;
+         /*weight(peso), width (largura), heigth( altura)
+         valores (lighter, normal, bold, bolder)
+         val num(100 á 900)*/
+         font-style: normal;
+         text-decoration: normal;
+        }
+
+        h1{
+            /*Uso do shorthand font, deve usar a ordem certa
+            - font-family--font-weight--font-size-font-family*/
+            font: italic bolder 3em 'Work Sans', sans-serif;
+        }
+       
+    </Style>
+</head>
+<body>
+    <h1>Trabalhando com fontes</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem eius aliquam, ullam ab repudiandae non mollitia consectetur, officiis voluptatem aut esse incidunt animi reprehenderit voluptates vero quos facilis nobis modi! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis aut illum excepturi officia ea iste alias quibusdam est nam eveniet, at quas doloremque qui repellat harum nulla eum molestias ducimus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae asperiores cum veritatis cumque velit. Eum adipisci quaerat atque dolor! In natus perspiciatis quam incidunt alias voluptate quisquam corporis ab beatae!</p>
+
+    <h2>Subtítulo do exercício</h2>
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sit, qui eligendi molestias aliquid itaque optio sunt placeat laborum! Iste aperiam id omnis modi hic quas molestiae quidem delectus error.</p>
+</body>
+</html>

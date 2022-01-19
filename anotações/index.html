@@ -1,0 +1,505 @@
+
+    <h1></h1> Para títulos pode usar /* h1 ao h6 
+    <p></p> Para parágrafos.
+    <br> Para quebra de linha.
+    <hr> Linha horizontal.
+    <u></u> Sublinhado mas é uma tag que ja está sendo descartada
+    <address></address> Destaca em forma de endereço.
+      <bold></bold> negrito.
+      <bolder></bolder> negrito mais forte.
+      <strong></strong> negrito sentido semântico. quando quero destacar algo.
+      <i></i> Itálico não semântica.
+      <em></em> Itálico semântica.
+      <mark></mark> Marca, destaca um texto como se fosse um marca texto.
+      <small></small> Letras pequenas semântica que normalmente tem em contratos.
+      <del></del> Aqueles textos excluídos, ficam marcados com um risco no meio.
+      <ins></ins> Fica um texto inserido, sublinhado.
+      <u></u> Sublinhado.
+      <sup></sup> Para quando quero numeros ou letras que ficam sobre o texto tipo x2 x ao quadrado.
+      <sub></sub> Para quando quero numeros ou letras que ficam abaixo tipo h20 que o 2 fica abaixo.
+      <code></code> Para identificar aquela linha de texto como um código no texto.
+      <pre></pre> Da pra usar a tag code dentro da pre e fica identado do modo que escrever.
+      <q>ou quote</q> Para uma citação que fica entre " ".
+      <blockquote cite=""></blockquote> faço uma citação com uma quebra de linha e usando cite dentro da tag , jogo uma url do livro ou texto que estou citando.
+      <abbr title="texto explicativo"></abbr> quando passa o mouse em cima do texto ou palavra destacada com abbr , aparece um texto explicando ou definindo o conteúdo.
+      <ol> Listas ordenadas , são aquelas que a ordem importa()
+          <li></li> Tag li não precisa ser fechada , não é obrigatório apartir do html5
+          <li></li>
+      </ol>
+      <ol type="" start=""> com type posso mudar a forma da lista, com A ou a , num Romanos I IV ou numeros comuns... usando o start posso fazer uma lista que comece em qualquer lugar no parametro que eu usei em type, ex: type "1" start "5"
+      </ol>
+
+      <ul> Listas não ordenadas, quando não importa a ordem , e usando type tenho disc, circle e square.
+          <li></li>
+          <li></li>
+      </ul>
+      tmabém é permitido fazer um lista com ol e ul juntos.
+
+      <dl> Lista de definição.
+          <dt>html</dt> termo.
+          <dd>linguagem de marcação</dd>descrição.
+      </dl>
+
+      para abreviações usar o <abbr title="suco de maçã"> apple juice</abbr>
+
+    <picture> </picture>com essa tag posso colocar várias imagens e de tamanhos variados, para meu site possa abrir de forma que a imagem se adeque ao tamanho da tela disponível no momento.
+     Qando abrimos a tag picture e adcionamos a imagem mestre, começamos pela foto grande ou pequena , para o navegador possa entender se começa do maior p menor ou o contrário.
+     <picture>
+         <source media="(max-width:750px )" srcset="imagens/foto-p.png" type="image/png">
+         <source media="(max-width:1050px )" srcset="imagens/foto-m.png" type="image/png">
+         <img src="imagens/foto.png" alt="imagem flexível">
+     </picture> com o source:media:type ele vem com os parâmetros min- width , nesse exemplo foi alterado para max devido a imagem principal ser a maior, srcset é o caminho onde a imagem está e o type é o tipo de arquivo e o formato do arquivo.
+    <img src="nomedoaqrvo.png" alt="explicação da foto"> Para add uma imagem.
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> Para add um favicon no cabeçalho do site , junto ao  nome do docuemnto(site), colocamos na area de head .
+     <a href="link externo" target="_blank" rel="external"></a> Link externo com parâmetro target para quando for clicado abrir outra aba, caso não tenho o _blank o link abrirá na aba atual, saindo do site.
+     <a href="pagina2" rel="next"></a> posso usar a mesta tag para uma outra pagina no meu site e usar um  outro tag <a href="homepage" rel="prev"></a> com um link para voltar a tela principal ou outras paginas.
+     <a href="#">link</a> quando estiver montando o site e quiser deixar um link ja pronto no local sem destino , só colocar um jogo da velha para deixalo ativo.
+     para downloads usamos
+     <a href="nomedoarquivo.pdf" download="nomedoarquivo.pdf" type="application/pdf">livro compactado em pdf</a> o pdf foi só um ex, podemos colcoar outros arquivos. Ficar atento ao caminho onde o arquivo estiver guardado, para busca-lo e coloca-lo no link de forma correta. Para sabermos os parâmetros que podem ser escolhidos temos o site <a href="https://www.iana.org/assignments/media-types/media-types.xhtml"></a>.
+
+     com links de música no site,assim como fotos, vídeos devemos sempre em criação de sites profissionais ou comerciais, ficar atento a autorização de uso que elas permitem ou não, alguns casos são necessários compra de licença se o conteúdo não for de uso do proprio cliente.Assim como podemos usar links de vídeo diretos do youtube ou outros sites semelhantes, também podemos baixar algumas musicas com direitos reservados do youtube la tem no caso de musicas que precisem de atribuições , tem um texto abaixo com a sitação do dono dos direitos e musicas que não precisem de atribuição so fazer o download.
+     para add o audio usamos tag <audio src="musicas/musica.mp3" controls autoplay></audio> alguns parâmetros usados, o controls para aparecer o controle de audio e o autoplay que ligará o áudio assim que a página abrir. alguns navegadores não aceitam o formato MP3, sendo assim podemos add formatos WAV e OGG que é um formato opensource.
+     Para add vários formatos usamos:
+     <audio preload="metadata" autoplay controls loop>
+         <source src="musicas/musica.mp3" type="audio/mp3">
+         <source src="musicas/musica.wav" type="audio/wav">
+         <source src="musicas/musica.ogg" type="audio/ogg">
+         <p>Caso não funcione colocar um texto aqui e um link <a href="musicas/musica.mp3">infelizmente seu navegador não tem suporte para audio , clique no link para download do aúdio.</a></p>
+     </audio>
+      ficar sempre atento a ordem , pois o navegador vai carregar pelo primeiro e se não conseguir vai nos próximos, por mais que o arquivo WAV é aceito, evitar se possível, pois é um formato muito grande atrapalhando na velocidade de carregamento da page. Os parâmetros usados no caso do preload ele tem 3 formas, o auto , metadata e o none, o auto não é recomendável, pois influência no carregamento da page, pois ela vai carregar todo arquivo  antes de abrir, ja o metadata carrega o nome do arquivo, duração e o none nada. o autoplay se o navegador aceitar já toca o audio assim que o navegador carregar, controls os controles e loop(não recomendável), pois fica aquela musica de fundo tocando sem parar na aertura do site, só se o cliente fizer muita questão de usar.
+
+      No caso de vídeos temos que ficar atentos em como será feito a hospedagem do mesmo, caso o cliente queira hospedar em seu prórpio site , devemos se ater a consumo de banda que ele tem disponível em seu pacote de hospedagem , então se possível colocar o arquivo de forma mais comprimida e com formato masi leve.Um bom programa para isso é o handbrake que é gratuito para conversão de videos.
+      OS formatos mais aceitos nos navegadores são MP4 ,M4V, webm e ogv(seria o ogg só que em video), sendo os três primeiros mais aceitos.
+      Mas também podemos add video através de sites como o youtube, vimeo entre outros , é interessante mostrar ao cliente a vantagem de se usar um site como esses para hospedagem de vídeos, pois o consumo de banda dos mesmos será feito através do site e não da hospedagem do cliente( no caso do vimeo caso o cliente queira que o video fique com acesso restrito e seja visto somente por quem tiver acesso ao site por exemplo , um site de cursos...ele tem planos que ficam a criterio do cliente e podem hospedar e limitar o acesso dos mesmos a só quem for liberado).
+      Para add <video src="midia/meu-video.mp4" width="500" controls></video> e para adicionar mais video é a mesma coisa que com audio tag video e depois qual formato vamos querer que o navegaor tente rodar primeiro.
+
+      <video width="500" poster="imagem/poster-video.png" controls> com widht(largura) do video, poster caso queira uma imagem como poster do video.
+        <source src="videos/meu-video.mp4" type="video/mp4">
+        <source src="videos/meu-video.m4v" type="video/mp4">
+        <source src="videos/meu-video.webm" type="video/webm">
+        <source src="videos/meu-video.ogv" type="video/ogv">
+        <p>Seu navegador não tem compatibilidade com reprodução de vídeos.</p>
+      </video>
+     
+       CSS 
+
+       Para estilos no html usamos o css, sendo assim temos várias formas de usar o estilo , sendo inline que são recomendadas para o uso em estilizações pontuais numa página e não recomendado para o todo, pois pode poluir todo o ambiente de trabalho do código.O segundo estilo é Local ou interno, que é feito entre as tags <head></head> com a tag <style></style> e lá identificamos todos aspectos que queremos mudar na página, desde h1 ao h6 , cor de fundo do body , do head, enfim de todo conteúdo da página em sí. Ex de estilizações
+       <head>
+           <style>
+               body {
+                   background-color: darkslategray;
+                   font-family: Arial, Helvetica, sans-serif; 
+                   font-size: 20px;
+                   color: blue;
+                   text-align: justify;
+               }
+           </style>
+       </head>
+
+       Podemos ver alguns parâmetros usados para estilizar nossa page, background-color , font-family que vai identificar as fontes que iremos usar, nesse caso são fontes grátis que provavelmente o navegador vai ter (Ficar atento ao uso de fontes pagas, pois elas também tem direito autoral). Font-size que é o tamanho que a fonte vai ocupar na tela, color para cor do texto e text-align que é o alinhamento nesse caso justify , ordena como se fosse escrita de livro, ou jornal..comum, podemos usar também o center no text-align para centralizar, left ou right entre outros.
+
+       Temos também o estilo externo , onde criamos um link no arquivo com estilização geral é usamos as identificações para cada tipo de tag que quero estilizar, pois se tivermos 20 páginas , com os outros estilos teria que fazer a estilização de cada uma em se próprio index,já com link externo , fica uma página separada onde tag  , por ex quero que todas as paginas meu cabeçalho seja fundo vermelho com letras brancas  é so deixar uma estilização para todas por igual e se for o caso ir mudando detalhes , nesse estilos posso usar mais de um link para modificações extras que só algumas páginas vão utilizar.
+
+       Gradiente(degradê)
+        
+       Para degradê devemos usar uma propriedade em body  que seria a background-image, que vai nos pedir a direção e a quantidade de cores que queremos usar.
+
+     <style>
+         body {
+             background-image: linear-gradient(to right, white, blue);
+         }
+     </style>
+           
+       na direção posso escolher to top , to right, to bottom e to left, no caso de to top e to bottom, provavelmente a tela irá ficar zebrada e devemos criar uma configuação global para css que utilizamos ( *) para configurar a altura ( height) ou até graus, em direção temos também radious que seria em circulo. fora outros.
+
+       <style>
+           * {
+               height: 100%;
+           }
+           body {
+               background-image: linear-gradient(to top, white, blue);
+           }
+       </style>
+
+     Fontes e seus tamanhos
+
+     em fonte temos as Medidas absolutas e as medidas relativas
+
+     Medidas Absolutas:
+     cm (centímetros), mm (milímetros), in ( píxels), pt (ponto), pc (paica)
+
+     Medidas Relativas:
+     em ( que é relativo ao tamnho atual da fonte, ao M maiúsculo de uma fonte)
+     ex ( que é relativo a altura x das fontes)
+     rem ( que é relativo ao tamanho da fonte que ta configurado no body)
+     vw ( que é relatinho a largura (width), da tela (viewport))
+     vh ( que é relativo a altura (height) da viewport)
+     % ( porcentagem)
+
+     existem outras medidas relativas , mas essas são as mais usadas e a mais recomendada a ser utilizada é a EM e a PX (recomendável para sites, para impressos porde-se usar pt).Geralmente o tamanho normal para usar com píxels é 16px ou 1em ( pois o 1 em é igual a 16px) mas pode ser mudado com css em config geral.
+
+     Temos também peso das fontes e estilos de Fontes
+
+     font-weight:
+     o peso da cor nada mais é o "tamanho ou largura de um fonte", que seriam lighter, normal, bold e bolder ou as numéricas que vão de 100 a 900, que seriam do tamanho menor as fontes bem magrinhas e depois masi gordinha e negritada.. nem todas as fontes tem essas variações ou todas elas.
+
+     font-style:
+    O estilo que podem ser  itálico, negrito
+    para sublinhado usar text-decoration: underline
+
+
+    temos também as shorthands que deixam as declarações em uma declaração só, mas devem seguir a ordem correta
+    no caso de de fontes devemos usar a ordem (font-style - font-weight - font-size - font-family)
+
+  <style>
+    h1 {
+       /* font-family: 'work sans', sans-serif; config sem shorthand
+        font-weight: bolder;
+        font-size: 3em;
+        font-style: italic;*/
+        font: italic bolder 3em 'work sans', sans-serif; /*shorthand*/
+ }
+  </style>
+
+   Para importar uma fonte externa posso usar o google fontes e pegar o código de uma fonte que eu queira 
+
+ <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+    </style>
+
+    ou se quiser posso so pegar o codigo css e colocar num seletor individual 
+
+    Para fontes baixadas que ficaram no servidor devemos usar :
+
+    <style>
+        @font-face {
+            font-family: o;
+            src: url('love larry.otf') format(opentype), url('love larry.ttf') format(truetype);
+            /*tipos de format()
+            - opentype (otf)
+            - truetype (ttf)
+            - embedded-opentype
+            - truetype-aat (Apple Advanced Typography)
+            - svg  normalmente o otf e o ttf funcionam na maioria dos navegadores */
+        }
+    </style>
+
+
+    alinhamento de fontes
+
+    normalmente as fontes ja vem configuradas a esquerda, mas podemos mudar com configurações do css , por exemplo centralizar o título de um texto (h1), ou jogar um sub-título a direta (h2), normalmente os textos ficam espaçados a direita e devemos configuralos com a borda da direita , usando text-align: justify; e também temos aqueles espaçoes que todo parágrafo tempo , para isso usamos text-indent: 20px; aqui usamos a quantidade de expaço que preferirmos , lógico seguindo a idéia de um espaço para início de parágrafo.
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: right;
+        }
+        p {
+            text-align: justify;
+            text-indent: 20px;
+        }
+    </style>
+
+    Seletores personalizados
+
+    existem dois seletores principais
+
+    em HTML temos o id    = que em css identifica por #
+    em HTML temos o class = que em css identifica por . 
+
+    cada documento ( ou página) só podemos utilizar um id , mas podemos usar quantos class forem necessárias. Podemos mesclar as duas , mas seguindo a ordem de uma só id em um documento por vez.
+    Na ordem de configurações fazemos a configuração geral e depois add de acordo com a id e class 
+    exemplo:
+
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            color: darkgreen;
+        }
+        h1#principal {
+            text-align: center;
+            background-color: lightgreen;
+            color: white;
+        }
+        h2 {
+            color: yellowgreen;
+        }
+        .basico {
+            color: green;
+        }
+        .intermediario {
+            color: yellow;
+        }
+        .avancado {
+            color: red;
+        }
+        .especial {
+            background-color: lightyellow;
+        }
+    </style>
+
+    <body>
+        <h1 id="principal" class="especial">titulo principal</h1>
+        <h2 class="basico">basico</h2>
+        <h2 class="intermediario">intermediario</h2>
+        <h2 class="avancado">avançado</h2>
+        <h1 class="especial">Titulo secundario</h1>
+        <h2 class="basico">basico</h2>
+        <h2 class="intermediario">intermediario</h2>
+        <h2 class="avancado especial">avançado</h2>
+    </body>
+    Nota-se que se quiser usar duas configs de uma classe num seletor só , é só separar por espaço o a identificação da class.
+    Temos também as pseudo-classes (:) e pseudo-elementos (::)
+    as pseudo-classes são relacionas ao estado de um determinado elemento(se ele esta ativo, marcado, vazio, etc.)
+    no exemplo vamos usar o hover(quando eu passar o mouse ou algo por cima ele vai fazer uma ação)
+    se eu fizer uma div e usar div:hover { background-color:yellow;}, toda vez que eu passar o mouse em cima dessa div ele mudará a cor para amarelo.
+    também em pseudo-classes temos o símbolo (>) representa o "filho" de uma tag ,por exemplo quero mudar um paragrafo mas que esta dentro de um div específica ou de várias , eu coloco div > p , e coloco as configs necessárias.
+    <div>São espaços(blocos) em um documento</div> 
+    
+    Modelos de caixas
+
+    Todo documento exibido em HTML são exibidos em caixas(box) , que podem vir com outras caixas dentro da outra que seria o (aninhamento).
+    Quando criamos um texto ou título o conteúdo ali escrito esta em volto por uma caixa, um exemplo.
+    <h1>OLa, Mundo!</h1>
+    Toda caixa tem um "tamanho" para configurar que são as medidas de altura (height) e largura ( width), que se imaginarmos seriam um espaço pontilhado em volta de olá mundo escrito no exemplo . 
+    podemos traças em volta desse pontilhado uma borda (border), podemos abrir um espaço entre o pontilhado e a borda que seria o alcochoamento(padding).Temos também a margem (margin) que é a mesma idéia do padding , só que fora da borda.Outro elemento que seria uma "borda fora da borda e dentro da margem", que é o contorno ou tracejado (outline). então esses seriam os elementos principais de uma caixa.
+    Existem dois tipo de box-level(que ocupa tada largura do viewport) e o inline-level(ocupa uma área do tamanho do conteúdo na mesma linha)
+
+    alguns exemplos 
+
+    box level                                     inline-level
+
+    <div></div>                                    <span></span>
+    <h1>ao h6</h1>                                 <a></a>
+    <p></p>                                        <code></code>
+    <main></main>                                  <small></small>
+    <header></header>                              <strong></strong>
+    <nav></nav>                                    <em></em>
+    <article></article>                            <sup> | <sub>
+    <aside></aside>                                <label></label>
+    <footer></footer>                              <button></button>
+    <form></form>                                  <input>
+    <video></video>                                <select></select>
+
+    algumas shorthands para usar com caixas
+
+    bordas
+
+    border-widht: 10px;             lembrando que  esse shorthand é só um exemplo , para entendimento e teste.
+    border-style: solid;
+    border-color: white;
+
+    border: 10px solid white; 
+    
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+    padding: 10px 10px 10px 10px; nesse caso que os 4 lados são iguais pode colocar o px 1 vez só
+    padding:10px;
+    padding: 10px 20px; Nesse caso o primeiro valor serve para cima e baixo e o segundo para direita esquerda.
+
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+
+    margin: 20px 20px 40px 20px;
+    margin: 20px auto 40px auto; caso queira que meu box fique centralizado.
+
+    outline-width: 5px;
+    outline-style: dashed;
+    outline-color: salmon;
+
+    outline: 5px dashed salmon;
+
+    GROUPING TAGS 
+
+    são as tags que utilizamos para montar nosso site , existem duas formas de utilizar, as tags sem semântica e as com semântica.
+
+    exemplo sem semântica
+
+    <body>
+        <div>
+            <div id="cabeçalho"></div>
+            <h1>
+
+            </h1>
+            <div id="menu">
+
+            </div>
+        </div>
+        <div id="conteudo">
+
+        </div>
+        <div id="rodape">
+
+        </div>
+    </body>
+
+    exemplo com semântica
+
+    <body>
+        <header> cabeçalho
+            <h1>Meu site</h1>
+            <nav> Menu 
+                <a href="#">link</a>
+                <a href="#">link</a>
+                <a href="#">link</a>                
+            </nav>
+        </header>
+        <main> corpo principal
+            <section id="assuntos"> sessões
+
+            </section>
+            <section id="noticias">
+                <article> artigos
+                    <h2>noticias sobre o brasil</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, distinctio, saepe, similique cupiditate cum labore earum exercitationem assumenda in ipsum esse facilis adipisci quibusdam. Atque provident nesciunt beatae id suscipit!</p>
+                     <aside> conteúdo relativo ao artigo 
+                         <p>artigo escrito por </p>
+                     </aside>
+                </article>
+                <article>
+
+                </article>
+
+            </section>
+        </main>
+        <footer>
+             <p>Desenvolvido por </p>
+        </footer>
+    </body>
+
+    Podemos ainda usar div , nada impede de usa-las com tags semânticas, também é possível usar outras tags semânticas dentro de outras por exemplo um <section></section> dentro de um <article></article> como no exemplo acima.Esse modelo fica mais fácil para editar os estilos e tudo mais.
+
+    SOMBRAS
+
+    O uso de sombras deve ser moderado , só se for algo preposital que deva ser visto no design que esteja criando, mas caso contrario fazer algo discreto .
+    a tag para shadow é a shadow-box: 1px(desloc hori) 1px(desloc verti) 1px(espalhamento) black(sombra); 
+    
+
+    criação do exercício site android
+
+    para criação do layout (mock do site) acessamos o www.mockflow.com para imaginarmos como será nosso site
+    
+    imaginado o layout seguimos com a configuração do conteúdo , nesse exercício começamos inserindo um texto ja pronto e colocando em suas respectivas tags , depois colocamos alguns conteúdos como fotos e videos , alguma configurações de strings e a cor de fundo do body. 
+    vamos aprender usar variaveis em CSS (lembrando, toda linguagem de programação tem variaveis, mas nem tudo que tem variados é linguagem de programação vide o css (linguagem de marcação))
+    ma comfiguração da página(documento) de CSS , podemos transformar as cores , fontes em variaveis  ex: cor #ff45ed   / --corh1: #ff45ed;  , pois se precisarmos fazer uma alteração depois , é só mudar a cor ou a fonte na variável e não configurar cada linha que ela foi utilizada . Para declarar as var em CSS usamos :hoot ( lembrando também que para configurações gloebais temos o * )
+
+    no exemplo de responsividade , uma extensão boa para ver tamanhos de tela e ajudar na configuração da responsividade do nosso site é o (windown resizer).
+    um exemplo de codigo do exercicio que estamos criando com responsividade para ajustar a imagem na box onde ela estiver é configurar o width dele no arquivo do css . 
+    
+    main {
+        background-color: gray;
+        padding: 20px;
+        border-radious: 10px;
+
+        min-width: 320px; largura da maioria dos phones antigos, mas mesmo esse config pode fazer com que o conteúdo tenha aquelas barras de rolagem laterais , pois o arquivo contem padding e margin, sendo assim só diminuir os píxels
+        max-width: 800px;
+        margin: auto;
+    }
+
+    img {
+        width: 100%;
+    }
+    
+    outras dicas do exercício proposto usar (line-height) para alterar a distância entre linhas
+    e na parte do aside quer aprender mais as configs da lista são 
+
+    aside > ul {
+        list-style-type: '\2714\00A0\00A0';
+        list-style-position: inside;
+        columns: 2;
+    }
+    
+    no list style type o utilizar o \ para add configs 2714 é numero do emoji utilizado e o 00A0 é uma configuração de espaço . lembrando que essa configuação não é compativel com todos navegadores.
+
+    para o video como ele vem com o codigo pronto precisamos fazer uma 'gambiarra' para resolver o problema da responsividade dele.
+
+    nesse exercicio envelopamos ele numa div e indentificamos como class video 
+    configuramos primeiro o div.video para o fundo fciar configurado com o fundo do main 
+    div.video {
+        background-color: var(--cor5);
+        margin: 0px -20px 30px -20px;
+        padding: 20px;
+        padding-bottom: 50%;
+        position: relative;
+    }
+    
+    div.video > iframe {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height:90%;
+    }
+    
+    depois montamos a config do iframe , colocamos o position relative no div.video e o position absolute no div.video > iframe... com isso configuramos o paddingbottom no div.video nesse caso ficou em 50% e depois o top e o left no iframe, se o video ficar com um espaço preto na tela ,podemos configurar a largura e a altura também . 
+
+
+    JAVASCRIPT
+    
+    dicas de leitura JAVASCRIPT o guia de leitura (O´RELLY), JAVASCRIPT guia do programador (NOVATEC), documentação da mozzila  e da ecma no site oficial de cada uma.
+
+    começando programando internamente no codigo no visual studio code , usamos a tag  mostrar um alerta na tela  
+    <script>
+        window.alert ('MInha primeira mensagem')
+        window.confirm('está gostando de javascript?')
+        window.prompt('Qual é seu nome?')
+    </script>
+
+    em JAVASCRIPT o simbolo de (=) é atribuído como recebe , ou seja no caso de uma variável receber uma string ficaria var nome = 'diogo' , caso eu coloque , var nome = 'douglas', então var nome agora vale douglas em vez de diogo ou posso atribuir null.
+
+    sobre os identificadores
+
+    podem comoçar com letra, $ ou _ 
+
+    não podem começar com números
+
+    é possível usar letras e  ou números
+
+    é possível usar letras e símbolos
+
+    não podem conter espaços , nesse caso usar o underline
+
+    não podem conter palavras reservadas , tipo var var 
+
+    data types 
+
+    number 
+       infinity
+       NaN (not a number)
+    string
+    boolean
+       true 
+       false
+    null
+    undefined 
+    object
+       array (vetor)
+    function (é um tipo primitivo)
+
+    null também é considerado um objeto.
+    
+    para trabalhar com esses tipos temos o comando typeof
+
+
+    GIT GITHUB
+
+    repositório local / remoto (externo)
+
+    no repositório podemos instalar git e versionar todo documento que alterarmos e assim se precisar voltar em alguma versão anterior, só acessar o git e procurar pela versão que desejar.
+
+    ja no repositório remoto podemos utilizar o github e armazenar esses documentos de forma que outras pessoas possam alterá-lo se necessário ou ficar de forma privada . Github também tem a função do git no computador mas de forma que posso acessar essas informações de qualquer lugar que tiver acesso ao github.
+
+
+
+
+    
