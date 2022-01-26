@@ -450,9 +450,9 @@
 
     começando programando internamente no codigo no visual studio code , usamos a tag  mostrar um alerta na tela  
     <script>
-        window.alert ('MInha primeira mensagem')
-        window.confirm('está gostando de javascript?')
-        window.prompt('Qual é seu nome?')
+        window.alert ('MInha primeira mensagem') // cria um alerta na tela .
+        window.confirm('está gostando de javascript?') // cria um alerta onde posso dar ok ou cancel.
+        window.prompt('Qual é seu nome?') //posso pedir pro usuário escrever algo . lembrando que precisamos usar variável para guardar o que vai ser escrito.
     </script>
 
     em JAVASCRIPT o simbolo de (=) é atribuído como recebe , ou seja no caso de uma variável receber uma string ficaria var nome = 'diogo' , caso eu coloque , var nome = 'douglas', então var nome agora vale douglas em vez de diogo ou posso atribuir null.
@@ -471,7 +471,7 @@
 
     não podem conter palavras reservadas , tipo var var 
 
-    data types 
+    DATA TYPES  
 
     number 
        infinity
@@ -488,7 +488,133 @@
 
     null também é considerado um objeto.
     
-    para trabalhar com esses tipos temos o comando typeof
+    para trabalhar com esses tipos temos o comando typeof que no terminal nos mostra o tipo do arquivo se é string , objeto, array e afins.
+
+    com o exemplo da outra aula , para guardar o que vai ser escrito no prompt devemos usar uma var 
+    <script>
+        var nome = window.prompt('Qual o seu nome')
+        window.alert('è um grande prazer te conhecer' + nome) // essa linha para exibir um alerta com o nome que vai ser escrito, e aqui usamos o + para concatenar a var nome  junto á mensagem.
+    </script>
+
+    outro exemplo que podemos fazer também com números 
+    <script>
+        var n1 = window.prompt('Dígite um número:')
+        var n2 = window.prompt('Dígite outro número:')
+        var soma = n1 + n2 
+        window.alert('A soma dos valores é :' + soma)
+    </script>
+
+    Se seguirmos o exemplo acima do jeito que está , a soma irá concatenar o n1 e o n2 se por exemplo , se digita 2 e 4 em vez de somar os números, ele vai tratar os dois como strings e me responder 24, então para converter essas strings devemos usar os comandos 
+    
+    (Number.parseInt(n)) que vai me converter para número inteiro, obs parse é de parsear, converter
+    <script>
+        var n1 = Number.parseInt(window.prompt('Dígite um número:'))
+        var n2 = Number.parseInt(window.prompt('Dígite outro número:'))
+        var soma = n1 + n2 
+        window.alert('A soma dos valores é :' + soma)
+    </script>
+
+    (Number.parseFloat(n)) que vai me converter para número reais, decimais.
+    <script>
+        var n1 = Number.parseFloat(window.prompt('Dígite um número:'))
+        var n2 = Number.parseFloat(window.prompt('Dígite outro número:'))
+        var soma = n1 + n2 
+        window.alert('A soma dos valores é :' + soma)
+    </script>
+
+    (number(n)) que vai converter de acordo com o que precisar inteiro ou real.
+
+    <script>
+        var n1 = Number(window.prompt('Dígite um número:'))
+        var n2 = Number(window.prompt('Dígite outro número:')) 
+        var soma = n1 + n2 
+        window.alert('A soma dos valores é :' + soma)
+    </script>
+
+    Também podemos converter número para string e usamos os comandos 
+
+    String(n)
+
+    n.toString
+
+    Lembrando que os comandos no javascript tem maiúsculos e minúsculos pra funcionar.
+
+    FORMATAÇÃO DE STRINGS (TEMPLATE STRINGS)
+
+    Em um exemplo onde gostariamos de ter var com nome, idade , salário... o exemplo ficaria assim
+    
+    var nome = 'diogo'
+    var idade = 30
+    var salario = 2000
+
+    ('O funcionário' + nome + 'de' + idade 'anos' + 'ganha' + salario)
+
+    Nas versões mais recentes do ecmascript, temos uma forma mais simples para declarar essas string, que são os template string , utilizando crase (`) e (${string}) esse aqui nos chamamos de place holder.
+    então nosso exemplo ficará assim
+
+    (`O funcionário ${nome} de ${idade} anos ganha ${salario}`)
+
+    Outras coias que podemos fazer com strings
+
+    s.length // que é um atributo, que me diz quantos caracteres a string possui
+    <script>
+        var nome = window.prompt('Qual seu nome?')
+        document.write(`Seu nome tem ${nome.length} letras.`)
+    </script>
+
+    s.toUpperCase() // que vai colocar todo conteúdo da string em maiúsculas
+    <script>
+        var nome = window.prompt('Qual seu nome?')
+        document.write(`Seu nome tem ${nome.length} letras.`)
+        document.write(`Seu nome em maiúsculas é ${nome.toUpperCase()}`)
+    </script>
+
+    s.toLowerCase() // que vai colocar todo conteúdo da string em minúsculas.
+    <script>
+        var nome = window.prompt('Qual seu nome?')
+        document.write(`Seu nome tem ${nome.length} letras.`)
+        document.write(`Seu nome em maiúsculas é ${nome.toUpperCase()}`)
+        document.erite(`Seu nome em minúsculas é ${nome.toLowerCase()}`)
+    </script>
+
+    FORMATAÇÃO DE NÚMEROS 
+
+    Quando queremos formatar um número de um variável e fixar suas casas decimais podemos utilizar
+    to.Fixed() então colocamos a var é a quantidade de casas decimais
+
+    var n1 = 1500.5
+    var n1.toFixed(2)
+    n1 1500.50
+
+    para utilizarmos a virgula no lugar do ponto
+
+    n1.toFixed(2).replace('.', ',')
+    1500,50
+
+    Para colocar esse valor como moeda 
+    
+    n1.toLacaleString('pt-BR' , {style: 'currency', currency: 'BRL'})
+    R$ 1.500,50
+
+    n1.toLocaleString('pt-BR' , {style: 'currency', currency: 'USD'})
+    US$ 1.500,50
+
+    assim como também outras moedas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     GIT GITHUB
