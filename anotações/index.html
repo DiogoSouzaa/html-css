@@ -662,9 +662,119 @@
 
     no caso do sinal vir antes ou depois interfere no tempo de resposta , por exemplo, com n++ o n , recebe o mais 1 e depois mostra a soma, ja no contrario ele ja mostra a soma direto (testar em terminal do node.)
 
+    OPERADORES RELACIONAIS 
     
+    (>)  maior 
+    (<)  menor 
+    (>=) maior ou igual 
+    (<=) menor ou igual 
+    (==) igual 
+    (!=) não igual, diferente 
 
+    Lembrando que para toda expressão que tenha um operador relacional , sempre terá um resultado booleano ( true or false)
+    ex:
 
+    5  >  2    true 
+    7  <  4    false
+    8 >=  8    true 
+    9 <=  7    false 
+    5 ==  5    true 
+    4 !=  4    false 
+
+    > 5 > 2
+    true
+    > 8 < 4
+    false
+    > 
+    > var  a = 8
+    undefined
+    > var b = 15
+    undefined
+    > a < b
+    true
+    > a > b
+    false
+    > a <= b - 10
+    false
+    > a == b
+    false
+    > a != b
+    true
+    >
+
+    No exemplo acima, quando temos oper. aritméticos e relacionais a ordem de precedência é aritmético , relacionais . 
+
+    preço >= 200.50        // O preço é maior ou igual 200,50?
+    idade < 18             // A idade é menor do que 18 anos? 
+    curso == 'JavaScript'  // O curso é igual á javascript ?
+    n1 != n2               // n1 é diferente de n2 ? 
+    
+    temos também  os oper. relacionais de IDENTIDADE ou OPERADOR DE IGUALDADE RESTRITA 
+
+    5 == 5     true
+    5 == '5'   true
+    OP DE IDENTIDADE 
+
+    5 === '5'   false // aqui ele pergunta se os dois são o mesmo num e mesmo tipo, como um é num e o outro string da false
+    5 === 5     true  // ja aqui como eles são identiticos tanto em tipo como são o mesmo número , entaõ é true.
+
+    temos também o desigual restrito (!==)
+
+    var x = 5 
+    var y = '5'
+
+    x != y false // pois eles tem o mesmo valor 
+    x !==  true  // apesar de ser de tipos diferentes o valor é o mesmo .
+
+    OPERADORES LÓGICOS
+
+    (!)  negação, ou não 
+    (&&) conjunção ou (e)  e  lógico
+    (||) disjunção ou (ou) ou lógico
+
+    o não (!) é tratado como operador unário, só tem um operando ou seja, ou ele só retorna true ou false
+
+    ! se  algo não for verdadeira é falsa e algo que não for falsa é verdadeira . 
+
+    !true  // false 
+    !false // true 
+
+    conjunção assim como o  de disjunção são operadores binários , vão trabalhar com dois valores lógicos de cada lado 
+
+    exemplo eu quero uma caneta azul e uma vermelha , se eu tenho as duas true , caso uma ou outra ou nenhuma false
+
+       true   &&  true  // true    
+       true   &&  false // false 
+       false  &&  true  // false
+       false  &&  false // false
+
+    ja no de disjunção eu quero uma caneta azul ou uma vermelha , se tenho as duas ou uma ou outra true , caso não tenha nenhuma false
+      
+       true   &&  true  // true    
+       true   &&  false // true
+       false  &&  true  // true
+       false  &&  false // false
+
+    Se em um exemplo eu tiver na mesma expressão oper. logicos, aritméticos e relacionais 
+
+    aritméticos, relacionais e lógicos 
+    já se tiver os 3 lógicos a ordem fica ! && || , não , e , ou . 
+
+    idade >= 15 && idade <= 17      // idade está entre 15 e 17 ?
+    estado == 'RJ' || estado =='SP' // o estado é RJ ou SP ?
+    salário > 1500 && sexo != 'M'   // o salário é acima de 1500 e não é homem?
+
+    OPERADOR TERNÁRIO 
+
+    ( ? : ) os dois simbolos aparecem na mesma expressão 
+
+    teste (?) true (:) false  , ou seja ele é ternário pois possui 3 blocos , o teste lógico e um restorno que pode ser verdadeiro ou falso 
+    Ex:
+
+    média >= 7 ? "Aprovado" : "Reprovado" 
+
+    nesse caso se a média for maior ou igual á 7 ele retorna , aprovado se não Reprovado . 
+    
 
 
 
