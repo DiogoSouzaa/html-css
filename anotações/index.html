@@ -774,33 +774,625 @@
     média >= 7 ? "Aprovado" : "Reprovado" 
 
     nesse caso se a média for maior ou igual á 7 ele retorna , aprovado se não Reprovado . 
+
+    ENTENDENDO DOM 
+
+    O que é DOM (Document Object Model ) é um modelo de objetos , conjunto de objetos dentro do navegador que vai dar acesso aos documentos do seu site. Ele só funciona no navegador . 
+    Quando montamos um site precisamos criar sua 'Arvore DOM (genealogica)',Essa  arvore dom começa da raiz e a raiz é chamada de 'WINDOW', tudo do javascript esta dentro do window, dentro do window temos varios objetos por exemplo , LOCATION(URL, localização do site, qual a pagina atual, qual foi a anterior), DOCUMENT(documento atual, html, css , javascript e afins), HISTORY(historico de acesso)
     
+    n exercício que fizemos a arvore seria 
+                                        
+
+                           WINDOW 
+                LOCATION   DOCUMENT    HISTORY 
+                               |
+                             HTML 
+                    HEAD             BODY 
+             META TITLE          H1 P  P   DIV 
+                                       |
+                                    STRONG 
+
+    Na arvore dom , quem esta acima é sempre um PARENT e quem esta logo abaixo é um CHILD , ou seja , html é um e parent de head e body , mas é child de document.
+
+    <script>
+        //window.document.write('Olá, Mundo!!')   não preciso usar o window, aqui so para o exercicio
+        //window.document.write(window.navigator.appName)
+        //window.document.write(window.document.URL)
+        //var p1 = window.document.getElementsByTagName('p')[1] quando no tag name temos mais de um elemento selecionamos pela ordem começando por 0 entre colchetes, por isso a importância da arvore DOM.
+        //window.document.write('Está escrito assim: ' + p1.innerText)
+        var corpo = window.document.body
+        var p1 = window.document.getElementsByTagName('p')[1]
+        //document.write(p1.innerHTML)
+        /*var d = window.document.getElementById('msg')
+        d.style.background = 'green'
+        d.innerText = 'Olá!'*/ 
+        var d = window.document.querySelector('div.msg')
+        d.style.background = 'blue'
+        
+   </script>
+    
+    No documento acima temos varias formas de acessar seus elementos por 
+
+    (marca TAG) getElementsByTagName
+
+    (ID) getElementById
+
+    (Nome) getElementsByTagName 
+
+    (Classe) getElementByClassname
+
+     e nas versões mais recentes o mais indicado é por (Seletor) querySelector / querySelectorAll
+
+    EVENTOS DOM 
+
+    Acessando a pagina da MDM por javascript DOM event list, temos vários exemplos dos eventos dom , mas para dar um exemplo , são coisas que eu posso fazer na tela usando os eventos DOM, se eu tenho uma div em formato de caixa , se eu entrar com o mouse na area dessa div , esse evento é chamado de (mouseenter), se eu movimento o mouse (mousemove), se eu clico e seguro o botao (mousedown), quando solto o botao (mouseup), quando clico (click), e quando o cursor sai da area da div (mouseout). Esse é só um exemplo de eventos.
+
+    Para disparar um evento, devemos usar uma função (function ), dentro dessas functions , ficam as linhas de codigo que vão acionar quando eu chamar a função ex: tenho a function clicar(){} , e dentro dessa function, tenho a linha de código de click , ela só vai funcionar quando eu clicar com o mouse em algum local que a linha foi programada, assim como no exemplo da div ácima. 
+
+    os eventos podem ser feitos diretamente no nosso doc html 
+    ex:
+
+    <div id="area" onclick="clicar()" onmouseout="sair()"></div>
+
+    ou dentro do proprio doc javascript 
+
+    
+    <div id="area">
+         Interaja...
+    </div>
+    <script>
+         var area = window.document.getElementById('area')
+         area.addEventListener('click', clicar)
+         area.addEventListener('mouseenter', entrar)
+         area.addEventListener('mouseout', sair)
+
+        function clicar() {
+           
+            area.innerText = 'Clicou!'
+            area.style.background = 'red'
+        }
+        function entrar() {
+            area.innerText = 'Entrou!'
+        }
+        function sair() {
+            area.innerText = 'Saiu!'
+            area.style.background = 'rgb(42, 139, 42)'
+        }
+    </script>
+    
+</body>
+</html>
+
+um outro exemplo para soma de valores.
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando Números</title>
+    <style>
+        body {
+            font: normal 18px Arial;
+        }
+        input {
+            font: normal 18px Arial;
+            width: 100px;
+        }
+        div#res {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando Valores</h1>
+    <input type="number" name="txtn1" id="txtn1"> +
+    <input type="number" name="txtn2" id="txtn2">
+    <input type="button" value="Somar" onclick="somar()">
+    <div id="res">Resultado</div>
+    <script>
+        function somar() {
+            var tn1 = window.document.getElementById('txtn1')
+            var tn2 = window.document.getElementById('txtn2')
+            var res = window.document.getElementById('res')
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var s = n1 + n2
+            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${s}</strong>`
+        }
+    </script>
+</body>
+</html>
+
+CONDIÇÕES 
+
+ O que são condições? são opções de ação que meu programa pode tomar.
+ ex digamos que eu programe uma maquina de café para fazer café todo dia as 7 da manhã
+
+ o programa verifica indentifica o horario, liga a cafeteira, verifica quantidade de pó e de agua, se a quantidade de pó e agua forem suficientes ele faz o café e emite um alerta de café feito, caso contrário ele nçao prepara o café e emite um alerta para adicionar o que estiver faltando... 
+ essa opção de verificação é uma condição.. 
+
+ fazer café 
+
+ verificar ingredientes
+
+ if(agua == quantidade ideal && pócafé == quantidade ideal) {
+     preparar café 
+     document.write('Café preparado')
+ } else {
+     document.write('Ingredientes em falta, café não preparado')
+ }
+
+nesse caso o IF(se) e o ELSE(senão) sendo if para uma proposta verdadeira(true) e else para falsa(false)... podemos também dar um parametro para o else (agua < 200ml ) ou (pócafé <  100gr), caso queira mais opções nesse programa.
+posso estruturar mais condições dentro de cada if e else , mas essa é só uma forma simples de mostrar a estrutura de uma condição.
+   
+vamos á um exercício de teste de velocidade para entender a lógica usando o terminal do node.
+
+queremos um programa que interprete um radar de velocidade. 
+
+var vel = 59
+console.log(`A velocidade do seu carro é ${vel}km/h.`)
+if (vel > 60) {
+    console.log(`Você ultrapassou a velocidade permitida.MULTADO!!`)
+}
+console.log(`Dirija sempre usando cinto de segurança!!`)
+
+esse é um exercício de condição simples pois se a condição for verdadeira ele executa a condição e o resto do programa, caso seja falsa ele só contina o programa sem a condição.
+
+var pais = 'EUA'
+if (pais == 'Brasil') {
+    console.log('Você é Brasileiro!')
+} else {
+    console.log('Você é Estrangeiro!')
+}
+
+Nesse exemplo temos uma condição composta pois depende de uma condição verdadeira ou falsa. 
+
+agora um exemplo de site 
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+</head>
+<body>
+    <h1>Sistema de multas</h1>
+    Velocidade do carro: <input type="number" name="txtvel" id="txtvel"> km/h 
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res">
+
+
+    </div>
+    <script>
+        function calcular() {
+            var txtv = document.getElementById('txtvel') //se for usar o querySelector('input#txtvel')
+            var res = document.getElementById('res')
+            var vel = Number(txtv.value) // aqui usamos o Number(txtv.value) para transformar o valor de string para number
+            res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}km/h</strong></p>` // por ser innerHTML consigo add os recursos do html, se usasse inerTEXT somente o texto sem as adições de ser um parágrafo e negrito por exemplo.
+            if (vel > 60 ) {
+                res.innerHTML += '<p>Você está <strong>MULTADO</strong> por excesso de velocidade</p>' // usamos conctenação para adicionar esse paragrafo
+            }
+            res.innerHTML += `<p>Dirija sempre com conto de segurança!</p>` // nesse caso o ( += ) serve como concatenação pois se trata de uma string
+        }
+    </script>
+</body>
+</html>
+
+condições aninhadas
+
+são condições que possuem outras condições juntas 
+
+if (cond1) {
+    bloco1
+} else {
+    if (cond2) {
+        bloco2
+    } else {
+        bloco3
+    }
+}
+
+nesse exemplo temos o seguinte  se a condição 1 for verdadeira , ela executa o bloco 1 e continua o programa, caso seja falsa ela segue para o outro aninhamento de condições, que nesse caso for verdadeiro segue o bloco 2 e se não segue o bloco 3.
+
+vamos a outro exemplo para checar idade para voto.
+
+var idade = 22                                 nesse exemplo se usarmos a logica o if de voto opcional ja fica implicita que como ele é maior que 16 e menor que 18 
+if (idade < 16) {                              podemos simplificar .
+    console.log('Não vota')
+} else {
+    if (idade >= 16 && idade < 18) {
+        console.log('Voto opcional')
+    }
+}
+EX simplificando
+
+var idade = 22
+console.log(`Você tem ${idade} anos.`)
+if (idade < 16) {
+    console.log('Não vota')
+} else if (idade < 18 || idade > 65) {
+    console.log('Voto opcional')
+} else {
+    concole.log('Voto obrigatório')
+}
+
+exercicio de hora diaria
+
+<script>
+    var hora = 8
+    console.log(`Agora são exatamente ${hora} horas.`)
+    if (hora < 12) {
+        console.log('Bom dia')
+    } else if (hora <= 18) {
+        console.log('Boa tarde')
+    } else {
+        console.log('Boa noite')
+    }
+</script>
+
+para pegar a hora do sistema em que o programa estiver sendo executado
+
+<script>
+    var agora = new Date()
+    var hora = agora.getHours() // aqui tenho oções de dia, hora , segundos e afins so olhar as opções oferecidas.
+    console.log(`Agora são exatamente ${hora} horas.`)
+    if (hora < 12) {
+        console.log('Bom dia')
+    } else if (hora <= 18) {
+        console.log('Boa tarde')
+    } else {
+        console.log('Boa noite')
+    }
+</script>
+
+CONDIÇÂO MULTIPLA 
+
+pode usar essa condição quando ela tem valores fixos e podemos usá-la em momentos expecíficos .
+
+nesse caso usamos o comando switch que seria algo como (caso)
+
+<script>
+    switch(expressão) {
+        case valor 1:
+            break // uso do break é obrigatório, pois sem ele , mesmo que a expressão seja a do valor desejado ela vai continuar testando os outros cases
+        
+        case valor 2:
+            break
+
+        case valor 3:
+            break
+
+        default:// default é como o else do if , caso nenhum dos cases sirvam para a expressão ela vai usar o default como padrão
+            break
+    }
+
+</script>
+
+<script>
+    var agora = new Date()
+    var diasem = agora.getDay() //assim como o gethours , aqui podemos escolher o dia , ano e afins.
+    /*
+       Domingo = 0   lembrando que na programação o (primeiro) sempre começa com o número 0
+       Segunda = 1
+       Terça   = 2
+       Quarta  = 3
+       Quinta  = 4
+       Sexta   = 5
+       Sabado  = 6
+    */
+
+   switch (diasem) {
+        case 0:
+            console.log('Domingo')
+            break
+        case 1: 
+            console.log('Segunda')
+            break
+        case 2:
+            console.log('Terça')
+            break
+        case 3:
+            console.log('Quarta')
+            break
+        case 4:
+            console.log('Quinta')
+            break
+        case 5:
+            console.log('Sexta')
+            break
+        case 6:
+            console.log('Sabado')
+            break
+        default:
+            console.log('[ERRO] Dia inválido!')
+            break
+   }
+</script>
+
+REPETIÇÕES (laços ou interações )
+
+ com repetições temos a ideia de fazer algo, uma função repetidas vezes até certo parametro...digamos que eu tenha uma pizza de 8 pedaços e meu objetivo e comer até que a pizza acabe.
+
+ <script>
+     function comerpizza() { // exemplo feito só para entendimento
+         comerfatia()
+         comerfatia()
+         comerfatia()
+         comerfatia()
+         comerfatia()
+         comerfatia()
+         comerfatia()
+         comerfatia()         
+     }
+ </script>
+a ideia é mais ou menos essa, assim como as condições a função verifica se baseia em true or false , chamo a função ele verifica , tem algum pedaço de pizza (sim?) então ele 'come' um pedaço de pizza e volta para a função e verifica novamente, até que essa expressão seja falsa... seguindo logo após para o fluxo normal do programa... 
+ou seja ENQUANTO houver pedaços de pizza ele continuara no laço da função... outro exemplo seria um contador de 1 á 10 , vc coloca a função conta de 1 até 10 de 1 em 1, ele chama a função e verifica se o contador é igual a 10, se não ele soma 1 ao contador e verifica até que seu contador seja 10 e logo após ele segue para o fluxo do programa normal.
+
+<script>
+    function comerpizza(){
+        while(temfatia()) {
+            comerfatia()
+        }
+    }
+
+</script>
+<script>
+    var c = 1
+    while(c <= 6) {
+        console.log('Ola, tudo bem ?')
+        c++ // isso é igual á c = c + 1
+    }
+</script>
+
+então podemos ver que a estruta while , tem seu teste lógico no inicio(testa, executa e faz o looping) temos também a estrutura ao contrario  que é feita com  do {} while(condição)
+
+<script>
+    do {
+        console.log('Ola, tudo bem?')
+        c++
+    } while (c <= 6)
+</script>
+
+ele primeiro executa o bloco de ações e testa se é verdadeiro , se sim ele executa a repetição, caso contrário segue o fluxo normal do programa.
+
+ESTRUTURA DE REPETIÇÃO COM VARIÁVEL DE CONTROLE 
+
+Nesse caso ele tem a mesma ideia das anteriores o que muda é a estrutura  enquanto com while eu declaro uma variável com algum função por exemplo c = 1 (inicio) , depois a estrura de while(c <= 10) {bloco de execução e incremento (c++)}
+
+<script>
+    var = 1
+    while( c <= 10) {
+        console.log(`contador ${c}`)
+        c++ // ou poderia ser c = c + 1
+    } 
+</script>
+
+com repetição com var de controle ficaria for (inicio;teste lógico;incremento) {bloco de execução}
+
+<script>
+    for (c = 1; c <= 10; c++) {
+        console.log(`contador${c}`)
+    }
+</script>
+
+VÁRIAVEIS COMPOSTAS (ARRAY / VETOR)
+
+Como o próprio nome ja diz é uma variável que composta por vários elementos , cada elemento é composto pelo seu valor/conteúdo e por uma chave de identificação/índice.
+
+ex: 
+
+var a = [a,b,c]
+
+// a (array) que contem 3 elementos (espaços), a,b,c são o conteúdo e como dito antes a contagem na programação em sua maioria começa com zero, ou seja o indice de a(0),b(1),c(2), ou seja é um array de 3 elementos.
+
+ex:
+
+criamos uma variavel composta para add numeros 
+
+<script>
+    let num =[5,8,4] 
+    console.log(`Nosso vetor é o ${num}`)
+
+    num[3] = 6 // caso queira add o num 6 ao vetor é só colocar entre [] o numero do elemento a ser criado e atribuir o numero ou string desejado
+    num.push(7) // já com esse comando eu adiciono o numero ou string desejado , caso não saiba o quanto de elementos já foram criados
+    num.length // para saber o tamanho de elementos que o array possuí
+    num.sort() // ele vai organizar os numeros em ordem crescente , nesse caso seria 4,5,8
+    num.indexOf(4)//caso queira buscar o valor dentro de um indice , nesse caso ele retornaria que o 4 esta no indice 2
+    //mas caso procure por algo que não foi declarado, ele retorna -1 .
+    //lembrando que nesse exemplo todos comandos devem ser feitos depois da declaração da variável, de acordo com fluxo do programa.
+
+    let pos = num.indexOf(9)
+    if (pos == -1 {
+        console.log
+    })
+</script>
+
+<script>
+    let valores = [8, 1, 7, 4, 2, 9]
+
+    console.log(valores)//assim ele irá mostrar exatamente como está declarado entre [] o que não seria interessante
+
+    console.log(valores[0])  // ja essa forma é digamos a forma mais errada de se mostrar na tela o resultado do vetor
+    console.log(valores[1])
+    console.log(valores[2])
+    console.log(valores[3])
+    console.log(valores[4])
+    console.log(valores[5])
+
+    for(let pos=0; pos < valores.length; pos++) {
+        console.log(`A posição ${pos} tem o valor ${valores[pos]}`) // essa seria a melhor forma de escrever a declaração, mas existe uma simplificação disso
+    }
+
+    for(let pos in valores ) {
+        console.log(valores[pos])
+    }
+
+    /* que seria algo como  para(for) cada posição (pos) dentro/em (in) valores, mostrarei valor na posição pos (console.log(valores[pos]))*/
+
+    let num = [5, 8, 2, 9, 3]
+    num.push(1)
+    num.sort()
+    console.log(num)
+    console.log(`O vetor tem ${num.length} posições.`)
+    console.log(`O primeiro valor do vetor é ${num[0]}`)
+    let pos = num.indexOf(8)
+    if (pos == -1) {
+        console.log('O valor não foi encontrado')
+    } else {
+        console.log(`O valor está na posição ${pos}`)
+    }
+</script>
+
+
+FUNÇÕES
+
+São como o próprio nome ja sugere, são funções, funcionalidades, rotinas, tarefa... imagine que vc tenha uma tarefa que é comprarleite...então todo dia sua mãe entrega o valor do leite para vc , você vai até a mercearia e compra o leite e volta com o leite para casa e entrega pra sua mãe . 
+
+então nessa situação quando sua mãe te chama para comprar leite ou se ficou acordado que toda quarta de manhã vc pega o dinheiro e compra o leite (essa ação é uma CHAMADA),não da pra ir coprar o leite sem o dinheiro e o ato da sua mãe pedir algo, no caso o leite.(então o dinheiro e o leite são PARAMETROS), o ato de ir na mercearia , entrar comprar o leite é uma AÇÂO(toda função tem uma ação)e no final quando volta para mãe e entrega o leite (essa ação é um retorno).
+
+toda função pode ter , uma CHAMADA, um conjunto de PARAMETROS, uma ação e um RETORNO (mas nem toda função usa parametros,nem toda função tem um retorno.)
+
+de forma técnica 
+
+.Funções são AÇÔES executadas assim que são CHAMADAS ou em decorrência de um EVENTO.
+
+.Uma FUNÇÂO pode receber PARÂMETROS e retornar um RESULTADO.
+
+ex:
+
+<script>
+    function ação(parametro formal) {
+        return res
+    }
+
+    ação(5)//nesse caso a chamada está fora da função e ela tem um parâmetro real que vai substituir o par formal , executar a ação e me dar um retorno
+</script>
+
+<script>
+    function parOUimpar(n) {
+        if (n%2==0){
+            return 'PAR'
+        }else {
+           return 'IMPAR'
+        }
+    }
+    console.log(parOUimpar(11))
+  
+</script>
+
+<script>
+    function soma (n1, n2) {
+        return n1 + n2
+    }
+    console.log(soma(2,5))
+</script>
+nesse exemplo acima caso eu esqueça um dos parâmetros reais, ele vai dar undefined e retornar NaN(not a number)e para resolver essa situação podemos ja especificar os parametros formais caso não recebam um parametro real 
+
+<script>
+     function soma (n1=0, n2=0) {
+        return n1 + n2
+    }
+    console.log(soma(2,5))
+</script>
+
+também podemos atribuir em uma variável  uma função 
+
+<script>
+    let v = function(x) {
+        return x*2
+    } 
+
+    console.log(v(5)) 
+</script>
+
+estudar SINTAXES em JAVASCRIPT 
+
+<script>
+    //fatorial de um numero
+
+    function fatorial(n) {
+        let fat = 1
+        for(let c = n; c > 1; c--) { //enquanto (for) c recebe n, c for maior que 1, c recebe -1
+           fat *= c  // e o fat recebe fat multiplicado por c 
+        }
+        return fat
+    }
+
+    console.log(fatorial(5))
+</script>
+
+também temos a FUNÇÂO RECURSIVA // estudar masi sobre depois 
+
+no exemplo fatorial entendemos que 5! == 5 x 4 x 3 x 2 x 1 , o que também pode ser interpretado como 5! * 4! certo, emtão refazendo o exemplo ácima de forma recursiva ficaria 
+n! = n * (n-1)! , lembrando que caso o fatorial seja 1 (1! = 1)
+
+<script>
+    function fatorial(n) {
+        if (n == 1) {
+            return 1
+        } else {
+            return n * fatorial(n-1)
+        }
+    }
+
+    console.log(fatorial(5))
+</script>
+
+o que estudar daqui pra frente
+
+FUNÇÕES //
+ ARROW FUNCTIONS 
+ CALLBACKS
+ FUNÇÕES ANÔNIMAS
+ IIFE 
+ JAVASCRIPT FUNCIONAL 
+
+OBJETOS 
+
+MODULARIZAÇÃO 
+
+EXPRESSÕES REGULARES (RegEx)
+
+JSON
+
+AJAX
+
+NODEJS
+
+VAMOS VER UM POUCO DE OBJETOS
+
+para entendermos um pouco quando fazemos um ARRAY (vetor), podemor colocar muitas informações dentro de uma mesma variável, mas ficando limitado a saber o que está guardado entro do indice 0,1 e demais que o array tiver.
+
+como objeto você consegue guardar as informações até funções 
+ex:
+
+<script>
+    let amigo = {nome:'josé',
+    sexo:'M',
+    peso:85.4,
+    engordar(peso=0){
+        console.log('engordou')
+        this.peso += p
+    }}
+
+    amigo.engordar(2)
+    console.log(`${amigo.nome} pesa ${amigo.peso}Kg`)
+</script>
 
 
 
 
+ GIT GITHUB
 
+repositório local / remoto (externo)
 
+no repositório podemos instalar git e versionar todo documento que alterarmos e assim se precisar voltar em alguma versão anterior, só acessar o git e procurar pela versão que desejar.
 
-
-
-
-
-
-
-
-
-
-
-
-    GIT GITHUB
-
-    repositório local / remoto (externo)
-
-    no repositório podemos instalar git e versionar todo documento que alterarmos e assim se precisar voltar em alguma versão anterior, só acessar o git e procurar pela versão que desejar.
-
-    ja no repositório remoto podemos utilizar o github e armazenar esses documentos de forma que outras pessoas possam alterá-lo se necessário ou ficar de forma privada . Github também tem a função do git no computador mas de forma que posso acessar essas informações de qualquer lugar que tiver acesso ao github.
-
+ja no repositório remoto podemos utilizar o github e armazenar esses documentos de forma que outras pessoas possam alterá-lo se necessário ou ficar de forma privada . Github também tem a função do git no computador mas de forma que posso acessar essas informações de qualquer lugar que tiver acesso ao github.
 
 
 
